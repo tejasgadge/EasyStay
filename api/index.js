@@ -21,8 +21,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'));
 app.use(cors({
+
   credentials: true,
-  origin: 'http://127.0.0.1:5173',
+  origin: 'https://easy-stay-2epf.vercel.app/',
 }));
 
 mongoose.connect(process.env.MONGO_URL);
@@ -36,7 +37,7 @@ function getUserDataFromReq(req) {
   });
 }
 
-app.get('/test', (req,res) => {
+app.get('/', (req,res) => {
   res.json('test ok');
 });
 
